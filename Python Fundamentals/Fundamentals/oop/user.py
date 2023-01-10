@@ -23,10 +23,9 @@ class User:
         if (self.gold_card_points >= amount):
             self.gold_card_points -= amount
             print(self.gold_card_points)
-            return self
         else:
             print('insufficient points')
-            return self
+        return self
 
 
 
