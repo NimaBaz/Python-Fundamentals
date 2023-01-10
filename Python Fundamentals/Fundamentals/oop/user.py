@@ -21,8 +21,11 @@ class User:
             return True
 
     def spend_points(self, amount):
-        self.gold_card_points -= amount
-        return self.gold_card_points
+        if (self.gold_card_points >= amount):
+            self.gold_card_points -= amount
+            return self.gold_card_points
+        else:
+            return 'insufficient points'
 
 
 
@@ -36,7 +39,7 @@ andres.display_info().enroll()
 print(andres.spend_points(80))
 
 jh.display_info().enroll()
-print(jh.spend_points(100))
+print(jh.spend_points(300))
 
 
 # nima.display_info()
