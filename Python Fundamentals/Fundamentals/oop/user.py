@@ -14,32 +14,29 @@ class User:
     def enroll(self):
         if self.is_rewards_member == True:
             print("User already a member")
-            return False
         else:
             self.is_rewards_member = True
             self.gold_card_points = 200
-            return True
+        return self
 
     def spend_points(self, amount):
         if (self.gold_card_points >= amount):
             self.gold_card_points -= amount
-            return self.gold_card_points
+            print(self.gold_card_points)
+            return self
         else:
-            return 'insufficient points'
+            print('insufficient points')
+            return self
 
 
 
 nima = User("Nima", "Bazofti", "nima@gmail.com", 29)
 andres = User("Andres", "Yooo", "andres@gmail.com", 31)
 jh = User("John", "Henry", "jh@gmail.com", 34)
-nima.display_info().enroll()
-print(nima.spend_points(50))
 
-andres.display_info().enroll()
-print(andres.spend_points(80))
-
-jh.display_info().enroll()
-print(jh.spend_points(300))
+nima.display_info().enroll().spend_points(50)
+andres.display_info().enroll().spend_points(80)
+jh.display_info().enroll().spend_points(300)
 
 
 # nima.display_info()
