@@ -9,6 +9,7 @@ class User:
 
     def display_info(self):
         print("User info: ", "\n",self.fname,"\n", self.lname, "\n",self.email, "\n",self.age)
+        return self
 
     def enroll(self):
         if self.is_rewards_member == True:
@@ -26,18 +27,27 @@ class User:
 
 
 nima = User("Nima", "Bazofti", "nima@gmail.com", 29)
-andres = User("Andres", "Yooo", "andres@gmail.com", 29)
-jh = User("John", "Henry", "jh@gmail.com", 29)
-nima.display_info()
-andres.display_info()
-jh.display_info()
-
-nima.enroll()
+andres = User("Andres", "Yooo", "andres@gmail.com", 31)
+jh = User("John", "Henry", "jh@gmail.com", 34)
+nima.display_info().enroll()
 print(nima.spend_points(50))
 
-andres.enroll()
+andres.display_info().enroll()
 print(andres.spend_points(80))
 
-jh.enroll()
+jh.display_info().enroll()
 print(jh.spend_points(100))
+
+
+# nima.display_info()
+# nima.enroll()
+# print(nima.spend_points(50))
+
+# andres.display_info()
+# andres.enroll()
+# print(andres.spend_points(80))
+
+# jh.display_info()
+# jh.enroll()
+# print(jh.spend_points(100))
 
