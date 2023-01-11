@@ -53,3 +53,37 @@ account2.deposit(8000).withdraw(5000).yield_interest().display_account_info()
 
 BankAccount.all_balances()
 
+class User:
+    def __init__(self, name, email, account):
+        self.name = name
+        self.email = email
+        self.account = account
+    
+    # other methods
+    
+    def make_deposit(self, i, amount):
+        self.account[i].deposit(amount)
+        return self
+
+    def make_withdrawal(self, i, amount):
+        self.account[i].withdraw(amount)
+        return self
+
+    def display_user_balance(self, i):
+        self.account[i].display_account_info()
+        return self
+
+    def transfer_money(self, amount, other_user, i, j):
+        self.account[i].withdraw(amount)
+        other_user.account[j].deposit(amount)
+        self.account[i].display_account_info()
+        other_user.account[j].display_account_info()
+
+user1 = User("Nima", "nima@gmail.com", [BankAccount(User, int_rate=0.02, balance=0), BankAccount(User, int_rate=0.02, balance=100)])
+user1.make_deposit(0, 500).make_withdrawal(0, 100).display_user_balance(0)
+
+user2 = User("John", "john@gmail.com", [BankAccount(User, int_rate=0.05, balance=0), BankAccount(User, int_rate=0.05, balance=100)])
+user2.make_deposit(1, 500).make_withdrawal(1, 100).display_user_balance(1)
+
+user1.transfer_money(200, user2, 0, 1)
+
