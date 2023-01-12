@@ -5,25 +5,10 @@ from flask import Flask, render_template
 app = Flask(__name__) 
 
 # The "@" decorator associates this route with the function immediately following
-@app.route('/')
-def hello_world():
-    return 'Hello World!' 
+@app.route('/play/<int:x>/<color>')
+def index(x, color):
+    return render_template("index.html", x = x, color = color) 
 
-
-@app.route('/dojo')
-def dojo():
-    return 'Dojo!'
-
-
-@app.route('/say/<name>') 
-def hello(name):
-    print(name)
-    return "Hi, " + name
-
-
-@app.route('/users/<int:num>/<var>') 
-def show_user_profile(num, var):
-    return num * var
 
 
 # Ensure this file is being run directly and not from a different module
