@@ -11,10 +11,22 @@
 </head>
 
 <body>
-    {{session}}
+    <h1 class="display-1">Counter</h1>
+
+    <p>
+        Number of Sessions: {{session['view']}}
+    </p>
 
 
-    <a href="/destroy_session">clear</a>
+    <button type="submit" class="btn btn-primary" value='create user' onclick="location.href='/Add2'">
+        Add to visits!
+    </button>
+
+    <button type="submit" class="btn btn-primary" value='create user' onclick="location.href='/destroy_session'">
+        Reset
+    </button>
+
+    
 </body>
 
 </html>
