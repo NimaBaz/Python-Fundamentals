@@ -9,7 +9,7 @@ app.secret_key = 'TheSosaGuwop'
 def index():
     return render_template("index.html")
 
-@app.route('/enter', methods=['POST'])
+@app.route('/form', methods=['POST'])
 def enter():
     session['Your Name'] = request.form['Your Name']
     session['Dojo Location'] = request.form['Dojo Location']
