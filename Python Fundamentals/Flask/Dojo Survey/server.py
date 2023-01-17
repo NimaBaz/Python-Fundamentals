@@ -11,11 +11,15 @@ def index():
 
 @app.route('/form', methods=['POST'])
 def enter():
-    session['Your Name'] = request.form['Your Name']
-    session['Dojo Location'] = request.form['Dojo Location']
-    session['Favorite Language'] = request.form['Favorite Language']
-    session['Comment'] = request.form['Comment']
     print(request.form)
+    session['your_name'] = request.form['your_name']
+    session['dojo_location'] = request.form['dojo_location']
+    session['favorite_language'] = request.form['favorite_language']
+    session['comment'] = request.form['comment']
+    if 'check_box' in request.form:
+        session['check_box'] = request.form['check_box']
+    else:
+        session['check_box'] = 'Not Subscribed'
     return redirect('/results')
 
 @app.route('/results')

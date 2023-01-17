@@ -14,20 +14,23 @@
     <h1 class="display-1">Info</h1>
     <form>
         <p>
-            Name: {{session['Your Name']}}
+            Name: {{session['your_name']}}
         </p>
         <p>
-            Location: {{session['Dojo Location']}}
+            Location: {{session['dojo_location']}}
         </p>
         <p>
-            Language: {{session['Favorite Language']}}
+            Language: {{session['favorite_language']}}
         </p>
         <p>
-            Comment: {{session['Comment']}}
+            Comment: {{session['comment']}}
+        </p>
+        <p>
+            Emails: {{session['check_box']}}
         </p>
     </form>
     
-    <a href="/">Go Back</a>
+    <a href="/" class="btn btn-primary">Take Survey Again</a>
 
 </body>
 
