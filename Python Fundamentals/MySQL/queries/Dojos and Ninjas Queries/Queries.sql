@@ -52,10 +52,10 @@ INSERT INTO ninjas (id, first_name, last_name, age, dojo_id)
 VALUES(9, 'Big', 'Wilson', 35, 11);
 
 -- Query: Retrieve all the ninjas from the first dojo
-SELECT * FROM ninjas where dojo_id = 1;
+SELECT * FROM ninjas WHERE dojo_id = 1;
 
 -- Query: Retrieve all the ninjas from the last dojo
-SELECT * FROM ninjas where dojo_id = 11;
+SELECT * FROM ninjas WHERE dojo_id = 11;
 
 -- Query: Retrieve the last ninja's dojo
 SELECT * FROM dojos 
