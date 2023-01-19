@@ -19,35 +19,10 @@
             {{user['first_name']}}
             {{user['last_name']}} <br>
             {{user['email']}} 
-            <a href="/update/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a>
+            <a href="/show/{{user.id}}">Show</a> | <a href="/update/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a>
         </li>
         {% endfor %}
     </ul>
-
-    <form action='/results' method='post'>
-        
-            <div>
-                <label for='first_name'>First Name:</label>
-                <input type='text' name='first_name'>
-            </div>
-
-            <div>
-                <label for='last_name'>Last Name:</label>
-                <input type='text' name='last_name'>
-            </div>
-
-            <div>
-                <label for='email'>Email:</label>
-                <input type='text' name='email'>
-            </div>
-
-            <div>
-                <button type="submit" class="btn btn-primary" value='create user'>
-                    Create
-                </button>
-            </div>
-
-    </form>
 
     <a href="/" class="btn btn-primary">Go Back To Add More Users</a>
 
