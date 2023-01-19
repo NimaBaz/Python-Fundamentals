@@ -17,12 +17,9 @@
         {% for user in users %}
         <li>
             {{user['first_name']}}
-        </li>
-        <li>
-            {{user['last_name']}}
-        </li>
-        <li>
-            {{user['email']}}
+            {{user['last_name']}} <br>
+            {{user['email']}} 
+            <a href="/update/{{user.id}}">Edit</a> | <a href="/delete/{{user.id}}">Delete</a>
         </li>
         {% endfor %}
     </ul>
