@@ -12,14 +12,26 @@
 
 <body>
     <h1 class="display-1">Dojo From The Ninja</h1>
-    <ul>
-        <li>
-            {{dojo.name}} 
-        </li>
-    </ul>
+    <table class="table">
+
+        <thead>
+            <tr>
+                <th scope="col">Dojo</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+            <tr class="table-active">
+                <td class="table-active">{{dojo.name}}</td>
+            </tr>
+
+        </tbody>
+
+    </table>
 
     <a href="/results" class="btn btn-primary">Go To Dojos</a>
-    <a href="/new_ninja" class="btn btn-primary">Go To Ninjas</a>
+    <a href="/ninjas/new" class="btn btn-primary">Go To Ninjas</a>
 
 </body>
 

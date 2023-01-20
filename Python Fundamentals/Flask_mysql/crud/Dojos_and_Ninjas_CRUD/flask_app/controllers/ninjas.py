@@ -3,16 +3,16 @@ from flask_app.models.ninja import Ninja
 from flask_app.models.dojo import Dojo
 
 # ! CREATE
-@app.route('/new_ninja')
+@app.route('/ninjas/new')
 def ninja_results():
     ninjas = Ninja.get_all()
     return render_template("ninja.html", ninjas = ninjas)
 
-@app.route('/new_ninja', methods = ["POST"])
+@app.route('/ninjas/new', methods = ["POST"])
 def create_ninja():
     print(request.form)
     Ninja.save(request.form)
-    return redirect('/new_ninja')
+    return redirect('/ninjas/new')
 
 
 # ! READ ALL
