@@ -15,13 +15,14 @@ class Recipe:
         self.date_made = data['date_made']
         self.under_30 = data['under_30']
         self.user_id = data['user_id']
+        self.number_served = data['number_served']
         self.first_name = data['first_name']
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
         
     @classmethod
     def save(cls, data):
-        query = "INSERT INTO recipes (name, description, instructions, date_made, under_30, user_id) VALUES (%(name)s, %(description)s, %(instructions)s, %(date_made)s, %(under_30)s, %(user_id)s);"
+        query = "INSERT INTO recipes (name, description, instructions, date_made, under_30, user_id, number_served) VALUES (%(name)s, %(description)s, %(instructions)s, %(date_made)s, %(under_30)s, %(user_id)s, %(number_served)s);"
         return connectToMySQL(DATABASE).query_db(query, data)
     
     # ! READ ALL
@@ -69,6 +70,7 @@ class Recipe:
                 'date_made' : item['date_made'],
                 'under_30' : item['under_30'],
                 'user_id' : item['user_id'],
+                'number_served' : item['number_served'],
                 'first_name' : item['first_name'],
                 'created_at' : item['ninjas.created_at'],
                 'updated_at' : item['ninjas.updated_at']
@@ -80,7 +82,7 @@ class Recipe:
     # ! UPDATE
     @classmethod
     def update(cls, data):
-        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, date_made = %(date_made)s, under_30 = %(under_30)s WHERE recipes.id = %(id)s;"
+        query = "UPDATE recipes SET name = %(name)s, description = %(description)s, instructions = %(instructions)s, date_made = %(date_made)s, under_30 = %(under_30)s, number_served = %(number_served)s WHERE recipes.id = %(id)s;"
         return connectToMySQL(DATABASE).query_db(query, data)
 
     # ! DELETE
@@ -107,6 +109,9 @@ class Recipe:
             is_valid = False
         if not 'under_30' in recipe:
             flash("Must select option for under 30 min.")
+            is_valid = False
+        if int(recipe['number_served']) <= 0:
+            flash("Recipe has to serve at least one person.")
             is_valid = False
         return is_valid
             

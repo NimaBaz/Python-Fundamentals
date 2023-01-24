@@ -17,7 +17,7 @@
             <a href="/recipes" class="btn btn-primary">Home</a>
             <a href="/logout" class="btn btn-primary">Logout</a>
         </div>
-        
+
         <div class="title">
             <h2>{{recipe.name}}</h2>
             <h3>Posted By: {{recipe.first_name}}</h3>
@@ -28,6 +28,7 @@
             <p class="info">
                 Description: {{recipe.description}}
             </p>
+
             <p class="info">
                 Under 30 Minutes? {% if recipe.under_30 %}
                                         Yes
@@ -35,11 +36,17 @@
                                         No
                                     {% endif %}
             </p>
+
             <p class="info">
                 Instructions: {{recipe.instructions}}
             </p>
+
             <p class="info">
                 Date Made: {{recipe.date_made}}
+            </p>
+
+            <p class="info">
+                Numbers Served: {{recipe.number_served}}
             </p>
 
         </div>
