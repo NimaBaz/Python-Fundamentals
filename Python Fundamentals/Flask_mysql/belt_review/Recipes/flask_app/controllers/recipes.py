@@ -41,6 +41,11 @@ def recipe_edit(id):
 
 @app.route("/recipes/update", methods = ["POST"])
 def recipe_update():
+    print(request.form)
+    
+    if not Recipe.validate_recipe(request.form):
+        return redirect(f"/recipes/edit/{request.form['id']}")
+
     Recipe.update(request.form)
     return redirect("/recipes")
 

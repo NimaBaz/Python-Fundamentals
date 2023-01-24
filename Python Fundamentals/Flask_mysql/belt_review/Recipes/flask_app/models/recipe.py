@@ -96,5 +96,17 @@ class Recipe:
         if len(recipe['name']) < 3:
             flash("Name must be three chars")
             is_valid = False
+        if len(recipe['description']) < 3:
+            flash("Name must be three chars")
+            is_valid = False
+        if len(recipe['instructions']) < 3:
+            flash("Name must be three chars")
+            is_valid = False
+        if recipe['date_made'] == '':
+            flash("Pick a date for when recipe was made.")
+            is_valid = False
+        if not 'under_30' in recipe:
+            flash("Must select option for under 30 min.")
+            is_valid = False
         return is_valid
             
